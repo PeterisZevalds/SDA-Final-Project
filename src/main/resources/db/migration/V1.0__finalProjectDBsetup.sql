@@ -9,7 +9,7 @@ CREATE TABLE IF NOT EXISTS users
     `phone_number`   VARCHAR(20)  NOT NULL UNIQUE,
     `username`       VARCHAR(50)  NOT NULL UNIQUE,
     `password`       VARCHAR(50)  NOT NULL,
-    `status`         INT     DEFAULT (1),
+    `status`         INT DEFAULT 1,
     `user_is_active` BOOLEAN DEFAULT TRUE
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8;

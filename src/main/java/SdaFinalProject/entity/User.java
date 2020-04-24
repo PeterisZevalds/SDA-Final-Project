@@ -1,54 +1,48 @@
 package SdaFinalProject.entity;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
+import java.io.Serializable;
 
 
-@Entity
-@Table(name = "users")
-public class User {
+@Entity(name = "users")
+public class User implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private int id;
 
-    @NotBlank
     @Column(name = "name")
-    @Size(min = 1, max = 50)
     private String name;
 
-    @NotBlank
     @Column(name = "surname")
-    @Size(min = 1, max = 50)
     private String surname;
 
-    @NotBlank
     @Column(unique = true, name = "email")
-    @Size(min = 1, max = 100)
     private String email;
 
-    @NotBlank
     @Column(unique = true, name = "phone_number")
-    @Size(min = 1, max = 20)
     private String phoneNumber;
 
-    @NotBlank
     @Column(unique = true, name = "username")
-    @Size(min = 1, max = 50)
     private String username;
 
-    @NotBlank
     @Column(name = "password")
-    @Size(min = 1, max = 50)
     private String password;
 
+    @Column(name = "status")
+    private int status;
 
-    public Long getId() {
+    @Column(name = "user_is_active")
+    private boolean isActive;
+
+    public User() {
+    }
+
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -98,5 +92,21 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
+
+    public boolean getIsActive() {
+        return isActive;
+    }
+
+    public void setIsActive(boolean isActive) {
+        this.isActive = isActive;
     }
 }
