@@ -63,4 +63,92 @@ public class Event {
     @Size(min = 1, max = 20)
     private String eventPhoneNumber;
 
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getEventName() {
+        return eventName;
+    }
+
+    public void setEventName(String eventName) {
+        this.eventName = eventName;
+    }
+
+    public String getEventDate() {
+        return eventDate;
+    }
+
+    public void setEventDate(String eventDate) {
+        this.eventDate = eventDate;
+    }
+
+    public String getEventStreet() {
+        return eventStreet;
+    }
+
+    public void setEventStreet(String eventStreet) {
+        this.eventStreet = eventStreet;
+    }
+
+    public String getEventCity() {
+        return eventCity;
+    }
+
+    public void setEventCity(String eventCity) {
+        this.eventCity = eventCity;
+    }
+
+    public String getEventPrice() {
+        return eventPrice;
+    }
+
+    public void setEventPrice(String eventPrice) {
+        this.eventPrice = eventPrice;
+    }
+
+    public String getEventMaxVisitors() {
+        return eventMaxVisitors;
+    }
+
+    public void setEventMaxVisitors(String eventMaxVisitors) {
+        this.eventMaxVisitors = eventMaxVisitors;
+    }
+
+    public String getEventDuration() {
+        return eventDuration;
+    }
+
+    public void setEventDuration(String eventDuration) {
+        this.eventDuration = eventDuration;
+    }
+
+    public String getEventLink() {
+        return eventLink;
+    }
+
+    public void setEventLink(String eventLink) {
+        this.eventLink = eventLink;
+    }
+
+    public String getEventEmail() {
+        return eventEmail;
+    }
+
+    public void setEventEmail(String eventEmail) {
+        this.eventEmail = eventEmail;
+    }
+
+    public String getEventPhoneNumber() {
+        return eventPhoneNumber;
+    }
+
+    public void setEventPhoneNumber(String eventPhoneNumber) {
+        this.eventPhoneNumber = eventPhoneNumber;
+    }
 }
