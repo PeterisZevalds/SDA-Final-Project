@@ -1,4 +1,4 @@
 package SdaFinalProject.controllers;
 
-public class UserConfig {
+public class UserController {
 }

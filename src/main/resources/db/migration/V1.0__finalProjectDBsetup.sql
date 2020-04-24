@@ -1,39 +1,43 @@
 /*Table for student entity*/
-CREATE TABLE IF NOT EXISTS users (
+CREATE TABLE IF NOT EXISTS users
+(
 
-  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(100) NOT NULL,
-    surname VARCHAR(100) NOT NULL,
-    email VARCHAR(100) NOT NULL UNIQUE,
-    phone_number VARCHAR(100) NOT NULL UNIQUE,
-    username VARCHAR(100) NOT NULL UNIQUE,
-    password VARCHAR(100)NOT NULL,
-    status INT DEFAULT(1),
-    is_active BOOLEAN DEFAULT TRUE
-)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+    `id`             INT          NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `name`           VARCHAR(50)  NOT NULL,
+    `surname`        VARCHAR(50)  NOT NULL,
+    `email`          VARCHAR(100) NOT NULL UNIQUE,
+    `phone_number`   VARCHAR(20)  NOT NULL UNIQUE,
+    `username`       VARCHAR(50)  NOT NULL UNIQUE,
+    `password`       VARCHAR(50)  NOT NULL,
+    `status`         INT     DEFAULT (1),
+    `user_is_active` BOOLEAN DEFAULT TRUE
+) ENGINE = InnoDB
+  DEFAULT CHARSET = utf8;
 
 /*Table for event entity*/
-/*CREATE TABLE IF NOT EXISTS event (
+CREATE TABLE IF NOT EXISTS event
+(
 
-    `id` int NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    `eventName` VARCHAR(100) NOT NULL,
-    `eventDate` VARCHAR(100) NOT NULL,
-    `eventStreet` VARCHAR(100) NOT NULL,
-    `eventCity` VARCHAR(100) NOT NULL,
-    `eventPrice` VARCHAR(100) NOT NULL,
-    `eventMaxVisitors` VARCHAR(100) NOT NULL,
-    `eventDuration` VARCHAR(100) NOT NULL,
-    `eventLink` VARCHAR (100),
-    `eventEmail` VARCHAR (100),
-    `eventPhoneNumber` VARCHAR (100),
-    `eventActive` BOOLEAN DEFAULT TRUE
-)ENGINE=InnoDB DEFAULT CHARSET=utf8;*/
+    `id`                 int          NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `event_name`         VARCHAR(100) NOT NULL,
+    `event_date`         VARCHAR(20) NOT NULL,
+    `event_street`       VARCHAR(100) NOT NULL,
+    `event_city`         VARCHAR(20) NOT NULL,
+    `event_price`        VARCHAR(20) NOT NULL,
+    `event_max_visitors` VARCHAR(10) NOT NULL,
+    `event_duration`     VARCHAR(20) NOT NULL,
+    `event_link`         VARCHAR(50),
+    `event_email`        VARCHAR(10),
+    `event_phone_number` VARCHAR(20),
+    `event_is_active`    BOOLEAN DEFAULT TRUE
+) ENGINE = InnoDB;
 
 /*Table for eventRegistration*/
-/*CREATE TABLE IF NOT EXISTS eventRegister (
+CREATE TABLE IF NOT EXISTS eventRegister
+(
 
-    `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    `user_id` INT NOT NULL,
+    `id`       INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `user_id`  INT NOT NULL,
     `event_id` INT NOT NULL,
     FOREIGN KEY (user_id)
         REFERENCES `users` (id)
@@ -41,7 +45,7 @@ CREATE TABLE IF NOT EXISTS users (
     FOREIGN KEY (event_id)
         REFERENCES `event` (id)
         ON DELETE CASCADE
-)ENGINE=InnoDB DEFAULT CHARSET=utf8;*/
+) ENGINE = InnoDB;
 
 
 /*insert into users (name, surname, email, phone_number, username, password, status, is_active) values
