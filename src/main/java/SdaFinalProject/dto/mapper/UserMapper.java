@@ -23,14 +23,15 @@ public class UserMapper {
 
     public User userFromDto(UserDTO userDTO) {
         User user = new User();
+        user.setId(userDTO.getId());
         user.setName(userDTO.getName());
         user.setSurname(userDTO.getSurname());
         user.setEmail(userDTO.getEmail());
         user.setPhoneNumber(userDTO.getPhoneNumber());
         user.setUsername(userDTO.getUsername());
         user.setPassword(userDTO.getPassword());
-        user.setStatus(userDTO.getStatus());
-        user.setIsActive(userDTO.isActive());
+        user.setIsActive(true);
+        user.setStatus(1);
         return user;
     }
 }

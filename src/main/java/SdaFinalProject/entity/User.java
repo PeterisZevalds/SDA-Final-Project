@@ -13,25 +13,18 @@ public class User implements Serializable {
 
     @Column(name = "name")
     private String name;
-
     @Column(name = "surname")
     private String surname;
-
     @Column(unique = true, name = "email")
     private String email;
-
     @Column(unique = true, name = "phone_number")
     private String phoneNumber;
-
     @Column(unique = true, name = "username")
     private String username;
-
     @Column(name = "password")
     private String password;
-
     @Column(name = "status")
     private int status;
-
     @Column(name = "user_is_active")
     private boolean isActive;
 
