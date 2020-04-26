@@ -7,6 +7,7 @@ import SdaFinalProject.exceptions.ServiceException;
 import SdaFinalProject.handler.ErrorCode;
 import SdaFinalProject.repository.UserRepository;
 import SdaFinalProject.service.validator.UserValidator;
+import SdaFinalProject.service.validator.user.UserValidationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,6 +21,8 @@ public class UserService {
     private final UserRepository userRepository;
     private final UserMapper userMapper;
     private final UserValidator userValidator;
+    private UserValidationService userValidationService;
+
 
     @Autowired
     public UserService(UserRepository userRepository, UserMapper userMapper, UserValidator userValidator) {
@@ -28,10 +31,9 @@ public class UserService {
         this.userValidator = userValidator;
     }
 
-    public UserDTO createUser(UserDTO userDto) {
-        User user = userMapper.userFromDto(userDto);
-        User userCreated = userRepository.save(user);
-        return userMapper.userToDto(user);
+    public int createUser(User user) {
+        userValidationService.validate(user);
+        return userRepository.save(user).getId();
     }
 
     public List<UserDTO> getAllUsers() {
@@ -40,7 +42,7 @@ public class UserService {
 
     public UserDTO getUserById(int id) {
         try {
-            User user = userRepository.getOne(id);
+            User user = userRepository.getOne((long) id);
             return userMapper.userToDto(user);
         } catch (EntityNotFoundException e) {
             throw new ServiceException(ErrorCode.ERROR_01);
@@ -58,19 +60,20 @@ public class UserService {
     }
 
     public void deactivateUser(int id) {
-        User user = userRepository.getOne(id);
+        User user = userRepository.getOne((long) id);
         user.setIsActive(false);
         userRepository.save(user);
     }
 
     public void deleteUser(int id) {
-        User user = userRepository.getOne(id);
+        User user = userRepository.getOne((long) id);
         userRepository.delete(user);
     }
 
     public void makeAdmin(int id) {
-        User user = userRepository.getOne(id);
+        User user = userRepository.getOne((long) id);
         user.setStatus(0);
         userRepository.save(user);
     }
+
 }
