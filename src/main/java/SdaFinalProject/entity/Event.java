@@ -11,37 +11,26 @@ public class Event implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-
     @Column(name = "event_name")
     private String eventName;
-
     @Column(name = "event_date")
     private String eventDate;
-
     @Column(name = "event_street")
     private String eventStreet;
-
     @Column(name = "event_city")
     private String eventCity;
-
     @Column(name = "event_price")
     private String eventPrice;
-
     @Column(name = "event_max_visitors")
     private String eventMaxVisitors;
-
     @Column(name = "event_duration")
     private String eventDuration;
-
     @Column(name = "event_link")
     private String eventLink;
-
     @Column(name = "event_email")
     private String eventEmail;
-
     @Column(name = "event_phone_number")
     private String eventPhoneNumber;
-
     @Column(name = "event_is_active")
     private boolean isActive;
 

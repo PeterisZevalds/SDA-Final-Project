@@ -1,17 +1,7 @@
-package SdaFinalProject.entity;
+package SdaFinalProject.dto;
 
+public class EventRegisterDTO {
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import java.io.Serializable;
-
-@Entity(name = "eventregister")
-public class EventRegister implements Serializable {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private int userId;
     private int eventId;
