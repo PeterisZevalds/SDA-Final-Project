@@ -3,6 +3,7 @@ package SdaFinalProject.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 
 @Entity(name = "event")
@@ -26,13 +27,15 @@ public class Event implements Serializable {
     @Column(name = "event_duration")
     private String eventDuration;
     @Column(name = "event_link")
-    private String eventLink;
+    private String eventPictureLink;
     @Column(name = "event_email")
     private String eventEmail;
     @Column(name = "event_phone_number")
     private String eventPhoneNumber;
     @Column(name = "event_is_active")
     private boolean isActive;
+    @ManyToMany(mappedBy = "events")
+    private List<User> users;
 
     public Event() {
     }
@@ -101,12 +104,12 @@ public class Event implements Serializable {
         this.eventDuration = eventDuration;
     }
 
-    public String getEventLink() {
-        return eventLink;
+    public String getEventPictureLink() {
+        return eventPictureLink;
     }
 
-    public void setEventLink(String eventLink) {
-        this.eventLink = eventLink;
+    public void setEventPictureLink(String eventLink) {
+        this.eventPictureLink = eventLink;
     }
 
     public String getEventEmail() {
@@ -131,5 +134,13 @@ public class Event implements Serializable {
 
     public void setActive(boolean active) {
         isActive = active;
+    }
+
+    public List<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(List<User> users) {
+        this.users = users;
     }
 }

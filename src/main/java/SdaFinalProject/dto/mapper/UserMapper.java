@@ -17,7 +17,7 @@ public class UserMapper {
         userDTO.setUsername(user.getUsername());
         userDTO.setPassword(user.getPassword());
         userDTO.setStatus(user.getStatus());
-        userDTO.setActive(user.getIsActive());
+        userDTO.setActive(user.isActive());
         return userDTO;
     }
 
@@ -30,7 +30,7 @@ public class UserMapper {
         user.setPhoneNumber(userDTO.getPhoneNumber());
         user.setUsername(userDTO.getUsername());
         user.setPassword(userDTO.getPassword());
-        user.setIsActive(true);
+        user.setActive(true);
         user.setStatus(1);
         return user;
     }

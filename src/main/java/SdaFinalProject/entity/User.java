@@ -2,6 +2,8 @@ package SdaFinalProject.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
+import java.util.Set;
 
 
 @Entity(name = "users")
@@ -27,6 +29,12 @@ public class User implements Serializable {
     private int status;
     @Column(name = "user_is_active")
     private boolean isActive;
+    @ManyToMany
+    @JoinTable(
+            name = "eventregister",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "event_id"))
+    List<Event> events;
 
     public User() {
     }
@@ -95,11 +103,20 @@ public class User implements Serializable {
         this.status = status;
     }
 
-    public boolean getIsActive() {
+    public boolean isActive() {
         return isActive;
     }
 
-    public void setIsActive(boolean isActive) {
+    public void setActive(boolean isActive) {
         this.isActive = isActive;
+    }
+
+
+    public List<Event> getEvents() {
+        return events;
+    }
+
+    public void setEvents(List<Event> events) {
+        this.events = events;
     }
 }
