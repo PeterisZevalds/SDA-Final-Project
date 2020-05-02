@@ -1,17 +1,18 @@
 package SdaFinalProject.controllers;
 
 
-
 import SdaFinalProject.dto.EventDTO;
 import SdaFinalProject.dto.UserDTO;
+import SdaFinalProject.entity.User;
 import SdaFinalProject.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
 @RestController
+@RequestMapping("/api/v1/rest/User")
 public class UserController {
 
     @Autowired
@@ -21,8 +22,7 @@ public class UserController {
         this.userService = userService;
     }
 
-
-   @PostMapping("/createUser")
+    @PostMapping(value = "/createUser", consumes = "application/json")
     public UserDTO createUser(@RequestBody UserDTO userDTO) {
         userService.createUser(userDTO);
         return userService.createUser(userDTO);
@@ -69,8 +69,8 @@ public class UserController {
     }
 
     @GetMapping("/user({id})/events")
-    public List<EventDTO> myEvents(@PathVariable int id ) {
-         return userService.myEvents(id);
+    public List<EventDTO> myEvents(@PathVariable int id) {
+        return userService.myEvents(id);
     }
 
 }

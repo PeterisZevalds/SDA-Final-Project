@@ -20,12 +20,4 @@ public class SdaFinalProjectApplication extends SpringBootServletInitializer {
         SpringApplication.run(SdaFinalProjectApplication.class, args);
     }
 
-    /**
-     * This method is used for war file build
-     */
-    @Override
-    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-        return application.sources(SdaFinalProjectApplication.class);
-    }
-
 }
