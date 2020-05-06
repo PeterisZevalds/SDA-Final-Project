@@ -38,7 +38,9 @@ public class EventService {
     }
 
     public List<EventDTO> allEvents() {
-        return eventRepository.findAll().stream().filter(Event::isActive).map(eventMapper::eventToDTO).collect(Collectors.toList());
+        return eventRepository.findAll()
+                .stream().filter(Event::isActive).map(eventMapper::eventToDTO)
+                .collect(Collectors.toList());
     }
 
     public void updateEvent(int id, EventDTO eventDTO) {
