@@ -15,11 +15,25 @@ public class UserMapper {
         userDTO.setEmail(user.getEmail());
         userDTO.setPhoneNumber(user.getPhoneNumber());
         userDTO.setUsername(user.getUsername());
-        userDTO.setPassword(user.getPassword());
         userDTO.setStatus(user.getStatus());
         userDTO.setActive(user.isActive());
         return userDTO;
     }
+    public UserDTO userToDto(User user, String hash) {
+        UserDTO userDTO = new UserDTO();
+        userDTO.setId(user.getId());
+        userDTO.setName(user.getName());
+        userDTO.setSurname(user.getSurname());
+        userDTO.setEmail(user.getEmail());
+        userDTO.setPhoneNumber(user.getPhoneNumber());
+        userDTO.setUsername(user.getUsername());
+        userDTO.setStatus(user.getStatus());
+        userDTO.setActive(user.isActive());
+        userDTO.setUserHash(hash);
+        return userDTO;
+    }
+
+
 
     public User userFromDto(UserDTO userDTO) {
         User user = new User();
@@ -29,7 +43,6 @@ public class UserMapper {
         user.setEmail(userDTO.getEmail());
         user.setPhoneNumber(userDTO.getPhoneNumber());
         user.setUsername(userDTO.getUsername());
-        user.setPassword(userDTO.getPassword());
         user.setActive(true);
         user.setStatus(1);
         return user;

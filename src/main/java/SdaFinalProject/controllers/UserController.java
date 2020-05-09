@@ -3,12 +3,14 @@ package SdaFinalProject.controllers;
 
 import SdaFinalProject.dto.EventDTO;
 import SdaFinalProject.dto.UserDTO;
+import SdaFinalProject.dto.request.UserCreateRequestDTO;
 import SdaFinalProject.entity.User;
 import SdaFinalProject.service.UserService;
+import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
-
+import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 import java.util.List;
 
 @RestController
@@ -23,9 +25,11 @@ public class UserController {
     }
 
     @PostMapping(value = "/createUser", consumes = "application/json")
-    public UserDTO createUser(@RequestBody UserDTO userDTO) {
-        userService.createUser(userDTO);
-        return userService.createUser(userDTO);
+    public UserDTO createUser(@RequestBody UserCreateRequestDTO userCreateRequestDTO) {
+        System.out.println(ReflectionToStringBuilder.reflectionToString(userCreateRequestDTO));
+
+        return userService.createUser(userCreateRequestDTO.getUserDTO(),
+                userCreateRequestDTO.getPassHash());
     }
 
     @GetMapping("/users")

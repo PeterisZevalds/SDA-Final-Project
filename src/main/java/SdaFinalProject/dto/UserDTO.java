@@ -12,10 +12,21 @@ public class UserDTO {
     @JsonProperty("phone_number")
     private String phoneNumber;
     private String username;
-    private String password;
+//    private String password;
     private int status;
     @JsonProperty("user_is_active")
     private boolean isActive;
+
+    public String getUserHash() {
+        return userHash;
+    }
+
+    public void setUserHash(String userHash) {
+        this.userHash = userHash;
+    }
+
+    @JsonProperty("user_hash")
+    private String userHash;
 
     public int getId() {
         return id;
@@ -63,14 +74,6 @@ public class UserDTO {
 
     public void setUsername(String username) {
         this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 
     public int getStatus() {

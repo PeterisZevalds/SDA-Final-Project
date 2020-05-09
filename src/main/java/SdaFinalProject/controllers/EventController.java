@@ -2,9 +2,12 @@ package SdaFinalProject.controllers;
 
 import SdaFinalProject.dto.EventDTO;
 import SdaFinalProject.dto.UserDTO;
+import SdaFinalProject.dto.request.EventCreateRequestDTO;
 import SdaFinalProject.service.EventService;
+import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 
 import java.util.List;
 
@@ -15,13 +18,16 @@ public class EventController {
     @Autowired
     private final EventService eventService;
 
+    @Autowired
     public EventController(EventService eventService) {
         this.eventService = eventService;
     }
 
-    @PostMapping("/createEvent")
-    public void createEvent(@RequestBody EventDTO eventDTO) {
-        eventService.createEvent(eventDTO);
+    @PostMapping(value="/createEvent", consumes = "application/json")
+    public EventDTO createEvent(@RequestBody EventCreateRequestDTO eventCreateRequestDTO) {
+        System.out.println(ReflectionToStringBuilder.reflectionToString(eventCreateRequestDTO));
+
+        return eventService.createEvent(eventCreateRequestDTO.getEventDTO());
     }
 
     @GetMapping("/events")

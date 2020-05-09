@@ -37,7 +37,7 @@ public class UserService {
     }
 
 
-    public UserDTO createUser(UserDTO userDto) {
+    public UserDTO createUser(UserDTO userDto, String passHash) {
         User user = userMapper.userFromDto(userDto);
         User userCreated = userRepository.save(user);
         return userMapper.userToDto(userCreated);

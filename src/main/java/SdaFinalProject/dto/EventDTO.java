@@ -5,11 +5,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class EventDTO {
 
     private int id;
+    @JsonProperty("title")
     private String name;
     private String date;
     private String street;
     private String city;
     private String price;
+    @JsonProperty("visitors")
     private String maxVisitors;
     private String duration;
     private String link;

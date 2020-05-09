@@ -31,10 +31,10 @@ public class EventService {
         this.userMapper = userMapper;
     }
 
-    public void createEvent(EventDTO eventDTO) {
+    public EventDTO createEvent(EventDTO eventDTO) {
         Event event = eventMapper.eventFromDTO(eventDTO);
-        eventRepository.save(event);
-
+        Event eventCreated = eventRepository.save(event);
+        return eventMapper.eventToDTO(eventCreated);
     }
 
     public List<EventDTO> allEvents() {
