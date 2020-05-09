@@ -27,7 +27,7 @@ CREATE TABLE IF NOT EXISTS event
     `event_max_visitors` VARCHAR(10) NOT NULL,
     `event_duration`     VARCHAR(20) NOT NULL,
     `event_link`         VARCHAR(50),
-    `event_email`        VARCHAR(10),
+    `event_email`        VARCHAR(50),
     `event_phone_number` VARCHAR(20),
     `event_is_active`    BOOLEAN DEFAULT TRUE
 ) ENGINE = InnoDB;
