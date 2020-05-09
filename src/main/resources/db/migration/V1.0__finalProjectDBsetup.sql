@@ -8,11 +8,10 @@ CREATE TABLE IF NOT EXISTS users
     `email`          VARCHAR(100) NOT NULL UNIQUE,
     `phone_number`   VARCHAR(20)  NOT NULL UNIQUE,
     `username`       VARCHAR(50)  NOT NULL UNIQUE,
-    `password`       VARCHAR(50)  NOT NULL,
+    `password`       VARCHAR(255) NOT NULL,
     `status`         INT DEFAULT 1,
     `user_is_active` BOOLEAN DEFAULT TRUE
-) ENGINE = InnoDB
-  DEFAULT CHARSET = utf8;
+) ENGINE = InnoDB;
 
 /*Table for event entity*/
 CREATE TABLE IF NOT EXISTS event
@@ -27,7 +26,7 @@ CREATE TABLE IF NOT EXISTS event
     `event_max_visitors` VARCHAR(10) NOT NULL,
     `event_duration`     VARCHAR(20) NOT NULL,
     `event_link`         VARCHAR(50),
-    `event_email`        VARCHAR(50),
+    `event_email`        VARCHAR(255),
     `event_phone_number` VARCHAR(20),
     `event_is_active`    BOOLEAN DEFAULT TRUE
 ) ENGINE = InnoDB;
