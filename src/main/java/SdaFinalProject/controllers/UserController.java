@@ -17,9 +17,11 @@ import java.util.List;
 @RequestMapping("/api/v1/rest/User")
 public class UserController {
 
-    @Autowired
+    //Remove @Autovired
     private final UserService userService;
 
+    //Add @Autowired
+    @Autowired
     public UserController(UserService userService) {
         this.userService = userService;
     }
@@ -32,10 +34,10 @@ public class UserController {
                 userCreateRequestDTO.getPassHash());
     }
 
-    @GetMapping("/users")
-    public List<UserDTO> getAllUsers() {
-        return userService.getAllUsers();
-    }
+//    @GetMapping("/users")
+//    public List<UserDTO> getAllUsers() {
+////        return userService.getAllUsers();
+//    }
 
     @GetMapping("/user({id})")
     public UserDTO getUserById(@PathVariable int id) {
@@ -52,20 +54,20 @@ public class UserController {
         return userService.updateUser(userDTO);
     }
 
-    @PutMapping("/user({id})")
-    public void deactivateUser(@PathVariable int id) {
-        userService.deactivateUser(id);
-    }
+//    @PutMapping("/user({id})")
+//    public void deactivateUser(@PathVariable int id) {
+//        userService.deactivateUser(id);
+//    }
 
     @DeleteMapping("/user({id})")
     public void deleteUser(@PathVariable int id) {
         userService.deleteUser(id);
     }
 
-    @PutMapping("/user/admin({id})")
-    public void makeAdmin(@PathVariable int id) {
-        userService.makeAdmin(id);
-    }
+//    @PutMapping("/user/admin({id})")
+//    public void makeAdmin(@PathVariable int id) {
+//        userService.makeAdmin(id);
+//    }
 
     @PostMapping("/user({id})/event({eventId})")
     public void registerToEvent(@PathVariable(name = "id") int userId, @PathVariable int eventId) {

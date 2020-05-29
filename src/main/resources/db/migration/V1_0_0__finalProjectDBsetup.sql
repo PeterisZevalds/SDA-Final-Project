@@ -8,7 +8,7 @@ CREATE TABLE IF NOT EXISTS users
     `email`          VARCHAR(100) NOT NULL UNIQUE,
     `phone_number`   VARCHAR(20)  NOT NULL UNIQUE,
     `username`       VARCHAR(50)  NOT NULL UNIQUE,
-    `password`       VARCHAR(255) NOT NULL,
+    `password`       VARCHAR(MAX) NOT NULL,
     `status`         INT DEFAULT 1,
     `user_is_active` BOOLEAN DEFAULT TRUE
 ) ENGINE = InnoDB;
@@ -31,6 +31,22 @@ CREATE TABLE IF NOT EXISTS event
     `event_is_active`    BOOLEAN DEFAULT TRUE
 ) ENGINE = InnoDB;
 
+
+-- insert into event values (1, 'Pirmais pasākums', '23.03.2020.', 'Ielas nosaukums', 'Pilsēta', 'free', '30', '1 hour', 'www.lapa.lv', 'epasts@epasts.lv' '22222222', TRUE);
+
+/*Table for all events */
+-- CREATE TABLE IF NOT EXISTS events
+-- (
+--
+--     `id`                 int          NOT NULL AUTO_INCREMENT PRIMARY KEY,
+--     `event_title`         VARCHAR(100) NOT NULL,
+--     `event_date`         VARCHAR(20) NOT NULL,
+--     `event_speaker`       VARCHAR(100) NOT NULL,
+--     `event_address`         VARCHAR(20) NOT NULL,
+--     `event_duration`     VARCHAR(20) NOT NULL,
+--     `event_is_active`    BOOLEAN DEFAULT TRUE
+-- ) ENGINE = InnoDB;
+
 /*Table for eventRegistration*/
 CREATE TABLE IF NOT EXISTS eventRegister
 (
@@ -46,6 +62,7 @@ CREATE TABLE IF NOT EXISTS eventRegister
         ON DELETE CASCADE
 ) ENGINE = InnoDB;
 
+CREATE SEQUENCE SEQ_EVENT increment by 1;
 
 /*insert into users (name, surname, email, phone_number, username, password, status, is_active) values
             ("Test1" ,"TestSurname", "example@example.com", "+371239299329", "testusername", "testpassword", 1, TRUE);*/

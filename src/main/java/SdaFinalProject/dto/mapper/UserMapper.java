@@ -43,7 +43,7 @@ public class UserMapper {
         user.setEmail(userDTO.getEmail());
         user.setPhoneNumber(userDTO.getPhoneNumber());
         user.setUsername(userDTO.getUsername());
-        user.setActive(true);
+        user.setActive(false);
         user.setStatus(1);
         return user;
     }

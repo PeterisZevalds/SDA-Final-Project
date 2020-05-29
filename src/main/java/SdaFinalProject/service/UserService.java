@@ -43,9 +43,9 @@ public class UserService {
         return userMapper.userToDto(userCreated);
     }
 
-    public List<UserDTO> getAllUsers() {
-        return userRepository.findAll().stream().filter(User::isActive).map(userMapper::userToDto).collect(Collectors.toList());
-    }
+//    public List<UserDTO> getAllUsers() {
+//        return userRepository.findAll().stream().filter(User::isActive).map(userMapper::userToDto).collect(Collectors.toList());
+//    }
 
     public UserDTO getUserById(int id) {
         try {
@@ -66,22 +66,22 @@ public class UserService {
         return userMapper.userToDto(updatedUser);
     }
 
-    public void deactivateUser(int id) {
-        User user = userRepository.getOne(id);
-        user.setActive(false);
-        userRepository.save(user);
-    }
+//    public void deactivateUser(int id) {
+//        User user = userRepository.getOne(id);
+//        user.setActive(false);
+//        userRepository.save(user);
+//    }
 
     public void deleteUser(int id) {
         User user = userRepository.getOne(id);
         userRepository.delete(user);
     }
 
-    public void makeAdmin(int id) {
-        User user = userRepository.getOne(id);
-        user.setStatus(0);
-        userRepository.save(user);
-    }
+//    public void makeAdmin(int id) {
+//        User user = userRepository.getOne(id);
+//        user.setStatus(0);
+//        userRepository.save(user);
+//    }
 
     public void registerToEvent(int userId, int eventId) {
         Event newEvent = eventRepository.getOne(eventId);

@@ -13,6 +13,8 @@ public class UserDTO {
     private String phoneNumber;
     private String username;
 //    private String password;
+    @JsonProperty("user_hash")
+    private String userHash;
     private int status;
     @JsonProperty("user_is_active")
     private boolean isActive;
@@ -24,9 +26,6 @@ public class UserDTO {
     public void setUserHash(String userHash) {
         this.userHash = userHash;
     }
-
-    @JsonProperty("user_hash")
-    private String userHash;
 
     public int getId() {
         return id;
