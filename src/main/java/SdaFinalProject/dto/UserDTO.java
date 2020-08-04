@@ -83,7 +83,7 @@ public class UserDTO {
         this.status = status;
     }
 
-    public boolean isActive() {
+    public boolean getIsActive() {
         return isActive;
     }
 

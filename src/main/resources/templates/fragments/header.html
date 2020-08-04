@@ -1,0 +1,80 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
+<head>
+    <div th:fragment="header-css">
+
+        <!-- ========== Meta Tags ========== -->
+        <meta charset="UTF-8">
+        <meta name="description" content="Evento -Event Html Template">
+        <meta name="keywords" content="Evento , Event , Html, Template">
+        <meta name="author" content="ColorLib">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <!-- ========== Title ========== -->
+        <title>EventoLV</title>
+        <!-- ========== STYLESHEETS ========== -->
+        <!-- Bootstrap CSS -->
+        <link th:href="@{/css/bootstrap.min.css}" href="assets/css/bootstrap.min.css" rel="stylesheet">
+        <!-- Fonts Icon CSS -->
+        <link th:href="@{/css/font-awesome.min.css}" href="assets/css/font-awesome.min.css" rel="stylesheet">
+        <link th:href="@{/css/et-line.css}" href="assets/css/et-line.css" rel="stylesheet">
+        <link th:href="@{/css/ionicons.min.css}" href="assets/css/ionicons.min.css" rel="stylesheet">
+        <!-- Carousel CSS -->
+        <link th:href="@{/css/owl.carousel.min.css}" href="assets/css/owl.carousel.min.css" rel="stylesheet">
+        <link th:href="@{/css/owl.theme.default.min.css}" href="assets/css/owl.theme.default.min.css" rel="stylesheet">
+        <!-- Animate CSS -->
+        <link th:href="@{/css/animate.min.css}" rel="stylesheet" href="assets/css/animate.min.css">
+        <!-- Custom styles for this template -->
+        <link th:href="@{/css/main.css}" href="assets/css/main.css" rel="stylesheet">
+    </div>
+</head>
+
+<body>
+<div class="loader">
+    <div class="loader-outter"></div>
+    <div class="loader-inner"></div>
+</div>
+
+<!--header start here -->
+<header class="header navbar fixed-top navbar-expand-md">
+    <div th:fragment="header">
+        <div class="container">
+            <a class="navbar-brand logo" href="#">
+                <img src="assets/img/logo.png" alt="Evento"/>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#headernav"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="lnr lnr-text-align-right"></span>
+            </button>
+            <div class="collapse navbar-collapse flex-sm-row-reverse" id="headernav">
+                <ul class=" nav navbar-nav menu">
+                    <li class="nav-item">
+                        <a class="nav-link active" th:href="@{/index.html}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " th:href="@{/speakers.html}">Speakers</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " th:href="@{/events.html.html}">Events</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " th:href="@{/news.html}">News</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " th:href="@{/contact.html}">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " th:href="@{/userRegistrationForm.html}">Register</a>
+                    </li>
+                    <li class="search_btn">
+                        <a href="#">
+                            <i class="ion-ios-search"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</header>
+</body>
+</html>
