@@ -23,9 +23,9 @@ public class DtoConverter {
         userDTO.setEmail(user.getEmail());
         userDTO.setPhoneNumber(user.getPhoneNumber());
         userDTO.setUsername(user.getUsername());
-        userDTO.setPassword(user.getPassword());
+//        userDTO.setPassword(user.getPassword());
         userDTO.setStatus(user.getStatus());
-        userDTO.setActive(user.getIsActive());
+//        userDTO.setActive(user.getIsActive());
         return userDTO;
     }
 
@@ -43,9 +43,9 @@ public class DtoConverter {
         user.setEmail(userDTO.getEmail());
         user.setPhoneNumber(userDTO.getPhoneNumber());
         user.setUsername(userDTO.getUsername());
-        user.setPassword(userDTO.getPassword());
+//        user.setPassword(userDTO.getPassword());
         user.setStatus(userDTO.getStatus());
-        user.setIsActive(userDTO.getIsActive());
+//        user.setIsActive(userDTO.getIsActive());
         return user;
     }
 }

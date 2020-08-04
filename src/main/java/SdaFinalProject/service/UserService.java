@@ -49,7 +49,7 @@ public class UserService {
 
     public UserDTO getUserById(int id) {
         try {
-            User user = userRepository.getOne(id);
+            User user = userRepository.getOne((long) id);
             return userMapper.userToDto(user);
         } catch (EntityNotFoundException e) {
             throw new ServiceException(ErrorCode.ERROR_01);
@@ -73,7 +73,7 @@ public class UserService {
 //    }
 
     public void deleteUser(int id) {
-        User user = userRepository.getOne(id);
+        User user = userRepository.getOne((long) id);
         userRepository.delete(user);
     }
 
@@ -85,7 +85,7 @@ public class UserService {
 
     public void registerToEvent(int userId, int eventId) {
         Event newEvent = eventRepository.getOne(eventId);
-        User user = userRepository.getOne(userId);
+        User user = userRepository.getOne((long) userId);
         List<Event> events = user.getEvents();
         events.add(newEvent);
         user.setEvents(events);
@@ -94,7 +94,7 @@ public class UserService {
     }
 
     public List<EventDTO> myEvents(int id) {
-        return userRepository.getOne(id).getEvents().stream().filter(Event::isActive).map(eventMapper::eventToDTO).collect(Collectors.toList());
+        return userRepository.getOne((long) id).getEvents().stream().filter(Event::isActive).map(eventMapper::eventToDTO).collect(Collectors.toList());
     }
 
 
